@@ -1,0 +1,269 @@
+<%- include('partials/header'); %>
+
+    <body class="mainBody">
+
+        <section id="selectTableSuccessS">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-8">
+
+                        <div class="divBody">
+                            <div class="Header">
+                                <p><span id="pHeader">KD</span> </p>
+
+                                <div id="mySidenav" class="sidenav">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                    <div class="categories">
+                                        <!-- <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." name="searchtext"
+                                        title="Type in a category"> -->
+                                        <form action='/index' method="post">
+                                            <input type="text" id="mySearch" placeholder="Search.."
+                                                title="Type in a category" name="searchtext">
+                                            <button type="submit">Search</button>
+                                        </form>
+                                        <ul class="ul_menu">
+                                            <li class="li_menu"><span onclick="openAppetizer()">Appetizer</span></li>
+                                            <li class="li_menu"> <span onclick="openMaindish()">Main Dish</span></li>
+                                            <li class="li_menu"><span onclick="openDessert()">Dessert </span></li>
+                                            <li class="li_menu"><span onclick="openBeverage()">Beverage</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="container">
+                                        <div class="listFromSearchBox">
+
+                                        </div>
+
+                                        <ul id="myMenu">
+                                            <section id="main_dish" class="sidenav">
+                                                <a href="javascript:void(0)" class="closebtn"
+                                                    onclick="closeNavMainDish()">&times;</a>
+                                                <h1 id="categories_name">Main Dish</h1>
+                                                <div class="row">
+                                                    <% for(var i=0; i < mainListItems.length ; i++) { %>
+                                                        <div class="col-md-6">
+                                                            <li>
+                                                                <div class="menu_box <%= mainListItems[i].name %>">
+                                                                    <img src=" <%= mainListItems[i].image %> "
+                                                                        class="img-fluid menu_img"
+                                                                        alt="<%= mainListItems[i].name %>">
+                                                                    <h1>
+                                                                        <%= mainListItems[i].name %>
+                                                                    </h1>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                            </section>
+
+
+                                            <section id="beverage" class="sidenav">
+                                                <a href="javascript:void(0)" class="closebtn"
+                                                    onclick="closeNavBeverage()">&times;</a>
+                                                <h1 id="categories_name">Beverage</h1>
+                                                <div class="row">
+                                                    <% for(var i=0; i < bevListItems.length ; i++) { %>
+                                                        <div class="col-md-6">
+                                                            <li>
+                                                                <div class="menu_box <%= bevListItems[i].name %>">
+                                                                    <img src=" <%= bevListItems[i].image %> "
+                                                                        class="img-fluid menu_img"
+                                                                        alt="<%= bevListItems[i].name %>">
+                                                                    <h1>
+                                                                        <%= bevListItems[i].name %>
+                                                                    </h1>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                            </section>
+                                            <section id="dessert" class="sidenav">
+                                                <a href="javascript:void(0)" class="closebtn"
+                                                    onclick="closeNavDessert()">&times;</a>
+                                                <h1 id="categories_name">Dessert</h1>
+                                                <div class="row">
+                                                    <% for(var i=0; i < desListItems.length ; i++) { %>
+                                                        <div class="col-md-6">
+                                                            <li>
+                                                                <div class="menu_box <%= desListItems[i].name %>">
+                                                                    <img src=" <%= desListItems[i].image %> "
+                                                                        class="img-fluid menu_img"
+                                                                        alt="<%= desListItems[i].name %>">
+                                                                    <h1>
+                                                                        <%= desListItems[i].name %>
+                                                                    </h1>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                            </section>
+
+                                            <section id="appetizer" class="sidenav">
+                                                <a href="javascript:void(0)" class="closebtn"
+                                                    onclick="closeNavAppetizer()">&times;</a>
+                                                <h1 id="categories_name">Appetizer</h1>
+                                                <div class="row">
+                                                    <% for(var i=0; i < appListItems.length ; i++) { %>
+                                                        <div class="col-md-6">
+                                                            <li>
+                                                                <div class="menu_box <%= appListItems[i].name %>">
+                                                                    <img src=" <%= appListItems[i].image %> "
+                                                                        class="img-fluid menu_img"
+                                                                        alt="<%= appListItems[i].name %>">
+                                                                    <h1>
+                                                                        <%= appListItems[i].name %>
+                                                                    </h1>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                            </section>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div id="Order" class="sidenavRight">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+                                    <a href="#">Main</a>
+                                    <a href="#">Services</a>
+                                    <a href="#">Clients</a>
+                                    <a href="#">Contact</a>
+                                </div>
+
+                                <!-- Use any element to open the sidenav -->
+                                <ul>
+                                    <li> <span onclick="openNav()">Menu</span></li>
+                                    <li class="li_order"> <span onclick="openNav2()">Orders</span></li>
+                                </ul>
+
+
+                            </div>
+                            <div class="Middle">
+                                <p id="TBnumber">Now you're selecting Table </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <script>
+            var TBnumber = JSON.parse(localStorage.getItem('TBnum'));
+            console.log(TBnumber.no);
+            document.getElementById("TBnumber").innerHTML = 'Now you are selecting Table ' + TBnumber.no;
+
+            /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openNav2() {
+                document.getElementById("Order").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openMaindish() {
+                document.getElementById("main_dish").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openBeverage() {
+                document.getElementById("beverage").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openDessert() {
+                document.getElementById("dessert").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openAppetizer() {
+                document.getElementById("appetizer").style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            function openMenuFromSearchBar() {
+                document.getElementById().style.width = "500px";
+                document.body.style.backgroundColor = "rgb(255,255,255)";
+            }
+            /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+
+                document.body.style.backgroundColor = "white";
+            }
+            function closeNav2() {
+                document.getElementById("Order").style.width = "0px";
+
+                document.body.style.backgroundColor = "white";
+            }
+            function closeNavMainDish() {
+                document.getElementById("main_dish").style.width = "0px";
+
+                document.body.style.backgroundColor = "white";
+            }
+            function closeNavDessert() {
+                document.getElementById("dessert").style.width = "0px";
+
+                document.body.style.backgroundColor = "white";
+            }
+            function closeNavAppetizer() {
+                document.getElementById("appetizer").style.width = "0px";
+
+                document.body.style.backgroundColor = "white";
+            }
+            function closeNavBeverage() {
+                document.getElementById("beverage").style.width = "0px";
+
+                document.body.style.backgroundColor = "white";
+            }
+
+            // function myFunction() {
+            //     // Declare variables
+            //     var input, filter, ul, li, divBox, i, txt;
+            //     input = document.getElementById("mySearch");
+            //     filter = input.value.toUpperCase();
+            //     ul = document.getElementById("myMenu");
+            //     li = ul.getElementsByTagName("li");
+            //     var list = [];
+            //     document.querySelector(".listFromSearchBox").innerHTML = '';
+            //     // divBox = li[0].getElementsByTagName("div")[0];
+            //     // console.log(divBox.className);
+            //     // Loop through all list items, and hide those who don't match the search query
+            //     for (i = 0; i < li.length; i++) {
+            //         divBox = li[i].getElementsByTagName("div")[0];
+            //         //console.log('MENU_BOX '+filter)
+            //         if (divBox.className.toUpperCase().indexOf('MENU_BOX ' + filter) > -1) {
+            //             console.log(true)
+            //             list.push(divBox = li[i].getElementsByTagName("div")[0])
+            //             // document.querySelector(".listFromSearchBox").appendChild(divBox)
+            //         }
+            //         else {
+
+            //         }
+            //     }
+            //     for (i = 0; i < list.length; i++) {
+            //         document.querySelector(".listFromSearchBox").appendChild(list[i])
+            //     }
+            //     //document.querySelector(".listFromSearchBox").innerHTML = ''
+            // }
+
+            function myFunction() {
+                input = document.getElementById("mySearch");
+                filter = input.value.toUpperCase();
+
+            }
+        </script>
+
+
+
+
+        <%- include('partials/footer'); %>

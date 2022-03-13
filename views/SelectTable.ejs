@@ -1,0 +1,91 @@
+<%- include('partials/header'); %>
+
+
+<body class="mainBody">
+
+    <section id="selectTable">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+
+                    <div class="divBody">
+                        <div class="Header">
+                            <p><span id="pHeader">KD</span> </p>
+                            <p> <span id="selectTB">Select Table</span> </p>
+                        </div>
+                        <div id="table1">
+                            <img src="/image/table1.png" class="table" alt="table1" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="1">
+                        </div>
+                        <div id="table2">
+                            <img src="/image/table2.png" class="table" alt="table2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="2">
+                        </div>
+                        <div id="table3">
+                            <img src="/image/table3.png" class="table" alt="table3" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="3">
+                        </div>
+                        <div id="table4">
+                            <img src="/image/table4.png" class="table" alt="table4" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="4">
+                        </div>
+                        <div id="table5">
+                            <img src="/image/table5.png" class="table" alt="table5" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="5">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Select table</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="localStorage.clear()">No</button>
+                    <button type="button" class="btn btn-primary"><a href="index">Yes</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var exampleModal = document.getElementById('exampleModal')
+        exampleModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget
+            // Extract info from data-bs-* attributes
+            var recipient = button.getAttribute('data-bs-whatever')
+            let tableNo = { no: recipient };
+            localStorage.setItem('TBnum', JSON.stringify(tableNo));
+            // If necessary, you could initiate an AJAX request here
+            // and then do the updating in a callback.
+            //
+            // Update the modal's content.
+            var modalTitle = exampleModal.querySelector('.modal-title')
+            modalTitle.textContent = 'Select table ' + recipient
+            var modalBody = exampleModal.querySelector('.modal-body')
+            modalBody.textContent = 'Confirm table ' + recipient + ' ?'
+
+        })
+
+
+    </script>
+
+  
+<%- include('partials/footer'); %>

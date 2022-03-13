@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+  project:
+    image: koonlookhin190/testDeploy:latest
+    port:
+      -"8115:3000"
