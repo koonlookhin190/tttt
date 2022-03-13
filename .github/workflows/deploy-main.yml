@@ -39,7 +39,7 @@ jobs:
         name: Prepare docker-compose run
         run: |
               mkdir testdeploy
-              cp docker.compose.yml testdeploy/docker-compose.yml
+              cp docker-compose.yml testdeploy/docker-compose.yml
               cd testdeploy
               docker-compose -H ${{secrets.HOST_SERVER}} down
               docker-compose -H ${{secrets.HOST_SERVER}} pull
