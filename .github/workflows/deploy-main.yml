@@ -1,6 +1,6 @@
 name: Deploy app on main
 'on'
-  push
+  push:
     branches:
       - main
 jobs:
