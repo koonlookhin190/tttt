@@ -17,18 +17,20 @@
                                 <div id="mySidenav" class="sidenav">
                                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                                     <div class="categories">
-                                        <!-- <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." name="searchtext"
-                                        title="Type in a category"> -->
-                                        <form action='/index' method="post">
-                                            <input type="text" id="mySearch" placeholder="Search.."
-                                                title="Type in a category" name="searchtext">
-                                            <button type="submit">Search</button>
+                                        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.."
+                                            name="searchtext" title="Type in a category">
+                                        <!-- <form action="/searchmenu" method="post">
+                                            <input type="text" name="searchtext" />
+                                            <button type="submit">search</button> -->
                                         </form>
+
                                         <ul class="ul_menu">
-                                            <li class="li_menu"><span onclick="openAppetizer()">Appetizer</span></li>
-                                            <li class="li_menu"> <span onclick="openMaindish()">Main Dish</span></li>
-                                            <li class="li_menu"><span onclick="openDessert()">Dessert </span></li>
-                                            <li class="li_menu"><span onclick="openBeverage()">Beverage</span></li>
+                                            <li class="li_menu"><span onclick="openNav('appetizer')">Appetizer</span>
+                                            </li>
+                                            <li class="li_menu"> <span onclick="openNav('main_dish')">Main Dish</span>
+                                            </li>
+                                            <li class="li_menu"><span onclick="openNav('dessert')">Dessert </span></li>
+                                            <li class="li_menu"><span onclick="openNav('beverage')">Beverage</span></li>
                                         </ul>
                                     </div>
                                     <div class="container">
@@ -45,13 +47,24 @@
                                                     <% for(var i=0; i < mainListItems.length ; i++) { %>
                                                         <div class="col-md-6">
                                                             <li>
-                                                                <div class="menu_box <%= mainListItems[i].name %>">
-                                                                    <img src=" <%= mainListItems[i].image %> "
-                                                                        class="img-fluid menu_img"
-                                                                        alt="<%= mainListItems[i].name %>">
-                                                                    <h1>
-                                                                        <%= mainListItems[i].name %>
-                                                                    </h1>
+                                                                <div id="changeFont"
+                                                                    class="menu_box <%= mainListItems[i].name %>">
+                                                                    <form action="/mainmenu" method="post">
+
+                                                                        <img src=" <%= mainListItems[i].image %> "
+                                                                            class="img-fluid menu_img"
+                                                                            alt="<%= mainListItems[i].name %>">
+                                                                        <h1>
+                                                                            <%= mainListItems[i].name %>
+                                                                        </h1>
+                                                                        <input type="text" id="myRequest"
+                                                                            name="requestMessage"
+                                                                            class="form-control top"
+                                                                            placeholder="Request.." />
+
+                                                                        <button type="submit" name="menuID"
+                                                                            value="<%= mainListItems[i].name %>">+</button>
+                                                                    </form>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -68,13 +81,24 @@
                                                     <% for(var i=0; i < bevListItems.length ; i++) { %>
                                                         <div class="col-md-6">
                                                             <li>
-                                                                <div class="menu_box <%= bevListItems[i].name %>">
-                                                                    <img src=" <%= bevListItems[i].image %> "
-                                                                        class="img-fluid menu_img"
-                                                                        alt="<%= bevListItems[i].name %>">
-                                                                    <h1>
-                                                                        <%= bevListItems[i].name %>
-                                                                    </h1>
+                                                                <div id="changeFont"
+                                                                    class="menu_box <%= bevListItems[i].name %>">
+                                                                    <form action="/bevmenu" method="post">
+
+                                                                        <img src=" <%= bevListItems[i].image %> "
+                                                                            class="img-fluid menu_img"
+                                                                            alt="<%= bevListItems[i].name %>">
+                                                                        <h1>
+                                                                            <%= bevListItems[i].name %>
+                                                                        </h1>
+                                                                        <input type="text" id="myRequest"
+                                                                            name="requestMessage"
+                                                                            class="form-control top"
+                                                                            placeholder="Request.." />
+
+                                                                        <button type="submit" name="menuID"
+                                                                            value="<%= bevListItems[i].name %>">+</button>
+                                                                    </form>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -89,13 +113,23 @@
                                                     <% for(var i=0; i < desListItems.length ; i++) { %>
                                                         <div class="col-md-6">
                                                             <li>
-                                                                <div class="menu_box <%= desListItems[i].name %>">
-                                                                    <img src=" <%= desListItems[i].image %> "
-                                                                        class="img-fluid menu_img"
-                                                                        alt="<%= desListItems[i].name %>">
-                                                                    <h1>
-                                                                        <%= desListItems[i].name %>
-                                                                    </h1>
+                                                                <div id="changeFont"
+                                                                    class="menu_box <%= desListItems[i].name %>">
+                                                                    <form action="/desmenu" method="post">
+
+                                                                        <img src=" <%= desListItems[i].image %> "
+                                                                            class="img-fluid menu_img"
+                                                                            alt="<%= desListItems[i].name %>">
+                                                                        <h1>
+                                                                            <%= desListItems[i].name %>
+                                                                        </h1>
+                                                                        <input type="text" id="myRequest"
+                                                                            name="requestMessage"
+                                                                            class="form-control top"
+                                                                            placeholder="Request.." />
+                                                                        <button type="submit" name="menuID"
+                                                                            value="<%= desListItems[i].name %>">+</button>
+                                                                    </form>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -111,13 +145,23 @@
                                                     <% for(var i=0; i < appListItems.length ; i++) { %>
                                                         <div class="col-md-6">
                                                             <li>
-                                                                <div class="menu_box <%= appListItems[i].name %>">
-                                                                    <img src=" <%= appListItems[i].image %> "
-                                                                        class="img-fluid menu_img"
-                                                                        alt="<%= appListItems[i].name %>">
-                                                                    <h1>
-                                                                        <%= appListItems[i].name %>
-                                                                    </h1>
+                                                                <div id="changeFont"
+                                                                    class="menu_box <%= appListItems[i].name %>">
+                                                                    <form action="/appmenu" method="post">
+
+                                                                        <img src=" <%= appListItems[i].image %> "
+                                                                            class="img-fluid menu_img"
+                                                                            alt="<%= appListItems[i].name %>">
+                                                                        <h1>
+                                                                            <%= appListItems[i].name %>
+                                                                        </h1>
+                                                                        <input type="text" id="myRequest"
+                                                                            name="requestMessage"
+                                                                            class="form-control top"
+                                                                            placeholder="Request.." />
+                                                                        <button type="submit" name="menuID"
+                                                                            value="<%= appListItems[i].name %>">+</button>
+                                                                    </form>
                                                                 </div>
                                                             </li>
                                                         </div>
@@ -131,23 +175,85 @@
 
                                 <div id="Order" class="sidenavRight">
                                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
-                                    <a href="#">Main</a>
-                                    <a href="#">Services</a>
-                                    <a href="#">Clients</a>
-                                    <a href="#">Contact</a>
+                                    <h1 id="changeFont">Your Orders</h1>
+                                    <br> <br>
+                                    <div class="row">
+                                        <% for(var i=1; i < orderLists.length ; i++) { %>
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-5">
+                                                <p>__________________________</p>
+                                                <p id="MenuList">
+
+                                                    <%= orderLists[i].name %>
+                                                </p>
+                                                <p>price : <%= orderLists[i].prize %> B.</p>
+                                                <p>
+                                                    - <%= orderLists[i].request %>
+                                                </p>
+                                                <p id="MenuList"> status : <%= orderLists[i].status %>
+                                                </p>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <br>
+                                                <form action="/cancel" method="post">
+                                                    <button type="submit" id='CFmenubutton' name='cancelOrder'
+                                                        value="<%= orderLists[i].name %>">cancel</button>
+                                                </form>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <br>
+                                    <h3 id="changeFont"> Total price : <%= totalP %>
+                                    </h3>
+
+                                    <form action="/confirm" method="post">
+                                        <button type="submit" id='CFbutton' name='confirmOrder'
+                                            value="<%= orderLists.name %>">confirm</button>
+                                    </form>
+
+                                    <button id="myBtn2" class="CFbutton">Checkbill</button>
+
+                                    <div id="myModal2" class="modal">
+
+                                        <!-- Modal content -->
+                                        <div class="modal-content cb">
+                                            <span class="close">&times;</span>
+                                            <h3>Bill summary</h3>
+                                            <% for(var i=1; i < orderLists.length ; i++) { %>
+                                                <p>
+                                                    <%= orderLists[i].name %> price : <%= orderLists[i].prize %> B.
+                                                </p>
+
+                                                <% } %>
+                                                    <p><b>Total price : <%= totalP %> </b></p>
+                                                    <p> -------------------------------------- </p>
+                                                    <p><b>payment method</b> </p>
+                                                    <p> SCB Bank : 186-229699-0 Natcha Petchsrikul</p>
+
+                                                    <form action="/checkbill" method="post">
+                                                        <button type="submit" id='CFbutton' name="checkbill"
+                                                            value="<%= totalP %>">Confirm</button>
+                                                    </form>
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
                                 <!-- Use any element to open the sidenav -->
                                 <ul>
-                                    <li> <span onclick="openNav()">Menu</span></li>
-                                    <li class="li_order"> <span onclick="openNav2()">Orders</span></li>
+                                    <li> <span onclick="openNav('mySidenav')">Menu</span></li>
+                                    <li class="li_order"> <span onclick="openNav('Order')">Orders</span></li>
                                 </ul>
 
 
                             </div>
                             <div class="Middle">
                                 <p id="TBnumber">Now you're selecting Table </p>
-
+                                <div class="middleIMG">
+                                    <img src="/image/chef.png"class="middleIMG" >
+                                </div>
                             </div>
 
                         </div>
@@ -166,34 +272,40 @@
             document.getElementById("TBnumber").innerHTML = 'Now you are selecting Table ' + TBnumber.no;
 
             /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-            function openNav() {
-                document.getElementById("mySidenav").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
+            function openNav(name) {
+                if (window.visualViewport.height > 700) {
+                    document.getElementById(name).style.width = "500px";
+                    document.body.style.backgroundColor = "rgb(255,255,255)";
+                } else {
+                    document.getElementById(name).style.width = "250px";
+                    document.body.style.backgroundColor = "rgb(255,255,255)";
+                }
+
             }
-            function openNav2() {
-                document.getElementById("Order").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
-            function openMaindish() {
-                document.getElementById("main_dish").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
-            function openBeverage() {
-                document.getElementById("beverage").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
-            function openDessert() {
-                document.getElementById("dessert").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
-            function openAppetizer() {
-                document.getElementById("appetizer").style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
-            function openMenuFromSearchBar() {
-                document.getElementById().style.width = "500px";
-                document.body.style.backgroundColor = "rgb(255,255,255)";
-            }
+            // function openNav2() {
+            //     document.getElementById("Order").style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
+            // function openMaindish() {
+            //     document.getElementById("main_dish").style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
+            // function openBeverage() {
+            //     document.getElementById("beverage").style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
+            // function openDessert() {
+            //     document.getElementById("dessert").style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
+            // function openAppetizer() {
+            //     document.getElementById("appetizer").style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
+            // function openMenuFromSearchBar() {
+            //     document.getElementById().style.width = "500px";
+            //     document.body.style.backgroundColor = "rgb(255,255,255)";
+            // }
             /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
@@ -226,41 +338,72 @@
                 document.body.style.backgroundColor = "white";
             }
 
-            // function myFunction() {
-            //     // Declare variables
-            //     var input, filter, ul, li, divBox, i, txt;
-            //     input = document.getElementById("mySearch");
-            //     filter = input.value.toUpperCase();
-            //     ul = document.getElementById("myMenu");
-            //     li = ul.getElementsByTagName("li");
-            //     var list = [];
-            //     document.querySelector(".listFromSearchBox").innerHTML = '';
-            //     // divBox = li[0].getElementsByTagName("div")[0];
-            //     // console.log(divBox.className);
-            //     // Loop through all list items, and hide those who don't match the search query
-            //     for (i = 0; i < li.length; i++) {
-            //         divBox = li[i].getElementsByTagName("div")[0];
-            //         //console.log('MENU_BOX '+filter)
-            //         if (divBox.className.toUpperCase().indexOf('MENU_BOX ' + filter) > -1) {
-            //             console.log(true)
-            //             list.push(divBox = li[i].getElementsByTagName("div")[0])
-            //             // document.querySelector(".listFromSearchBox").appendChild(divBox)
-            //         }
-            //         else {
-
-            //         }
-            //     }
-            //     for (i = 0; i < list.length; i++) {
-            //         document.querySelector(".listFromSearchBox").appendChild(list[i])
-            //     }
-            //     //document.querySelector(".listFromSearchBox").innerHTML = ''
-            // }
-
             function myFunction() {
+                // Declare variables
+                var input, filter, ul, li, divBox, i, txt;
                 input = document.getElementById("mySearch");
                 filter = input.value.toUpperCase();
+                ul = document.getElementById("myMenu");
+                li = ul.getElementsByTagName("li");
+                var list = [];
 
+                // divBox = li[0].getElementsByTagName("div")[0];
+                // console.log(divBox.className);
+                // Loop through all list items, and hide those who don't match the search query
+                for (i = 0; i < li.length; i++) {
+                    divBox = li[i].getElementsByTagName("div")[0];
+                    //console.log('MENU_BOX '+filter)
+                    if (divBox.className.toUpperCase() === 'MENU_BOX ' + filter) {
+                        console.log(true)
+                        list.push(divBox = li[i].getElementsByTagName("div")[0])
+                        document.querySelector(".listFromSearchBox").appendChild(divBox)
+                    }
+                }
+
+                //document.querySelector(".listFromSearchBox").innerHTML = ''
             }
+
+            var modal = document.getElementById("myModal2");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn2");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function () {
+                modal.style.display = "block";
+                console.log("open modal")
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+
+            // function myFunction() {
+            //     input = document.getElementById("mySearch");
+            //     filter = input.value.toUpperCase();
+
+            // }
+
+            // var menuName;
+            // var box = document.querySelectorAll('.menu_box');
+            // console.log(box);
+            // box.forEach
+            // box.entries.addEventListener("click", event=>{
+            //     menuName = box.className;
+            //     console.log(menuName);
+            // })
         </script>
 
 

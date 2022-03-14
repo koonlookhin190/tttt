@@ -1,0 +1,82 @@
+<%- include('partials/header'); %>
+
+    <body class="mainBody">
+
+        <section id="kitchen">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-8">
+
+                        <div class="divBodyKitchen">
+                            <div class="Header">
+                                <p><span id="pHeader">KD</span> </p>
+                                <p> <span id="selectTB">Kitchen</span> </p>
+                            </div>
+                            <form action="/refresh" method="post">
+                                <button type="submit"> refresh</button>
+                            </form>
+
+                            <% for(var i=0; i < tableLists.length ; i++) { %>
+
+
+                                <% if(tableLists[i].order.length !=1) { %>
+                                    <% if(tableLists[i].order[1].status !='' ) { %>
+
+                                        <div class="orderList">
+                                            <h1> Table : <%= tableLists[i].tableNumber %>
+                                            </h1>
+                                            <h4> order : </h4>
+                                            <div class="row">
+                                                <% for(var j=1; j < tableLists[i].order.length ; j++) { %>
+                                                    <% if(tableLists[i].order[j].status !='' ) { %>
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-6">
+                                                            <p>___________________________________</p>
+                                                            <p>
+                                                                <%= tableLists[i].order[j].name %>
+                                                            </p>
+                                                            <% if(tableLists[i].order[j].request !='' ) { %>
+                                                                <p>
+                                                                    - <%= tableLists[i].order[j].request %>
+                                                                </p>
+
+                                                                <% } %>
+                                                                    <p>
+                                                                        status : <%= tableLists[i].order[j].status %>
+                                                                    </p>
+
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <br>
+                                                            <form action="/changeStatus" method="post">
+                                                                <select id="menuStatus" name="statusMessage">
+
+                                                                    <option value="inqueue">inqueue</option>
+                                                                    <option value="cooking">cooking</option>
+                                                                    <option value="served">served</option>
+                                                                    <option value="canceled">canceled</option>
+                                                                </select>
+                                                                <input type="hidden" name="changedStatusOrder"
+                                                                    value="<%= tableLists[i].order[j].name %>"></input>
+                                                                <input type="submit" class='KTbutton' value="Submit" />
+                                                            </form>
+                                                        </div>
+                                                        <% } %>
+                                                            <% } %>
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                            <% } %>
+                                                <% } %>
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <%- include('partials/footer'); %>

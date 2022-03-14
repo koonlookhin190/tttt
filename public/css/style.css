@@ -18,12 +18,14 @@ body{
     vertical-align: middle;
     padding:  23% 10% 18% 10%;
     font-family: 'Source Sans Pro', sans-serif; font-size: 18px; line-height: 32px;
+    background-color: #020202;
 }
 #resName{
     color: gold;
 }
 #p1{
     font-family: 'Dancing Script', cursive;      font-size: 120px;
+    margin-top: -40px;
     padding-bottom: 70px;
     color:gold;
 }
@@ -73,17 +75,12 @@ a > span{
     line-height: 35px;
 }
 
-#table2,#table4{
+#table{
     position: relative;
-    left:500px;
+    left:125px;
     width: 157.32px;
     height: 115.38px;
-}
-#table1,#table3,#table5{
-    position: relative;
-    left:100px;
-    width: 157.32px;
-    height: 115.38px;
+    margin-bottom: 50px;
 }
 
 #pHeader{
@@ -110,9 +107,16 @@ a > span{
 }
 .divBody{
     height:100vh;
-    background-color: #020202;
+    /*background-image: url('/image/chef.png') ;*/
+     background-color: #020202; 
     box-shadow: #020202 0px 54px 55px,  #020202 0px -12px 30px, #020202 0px 4px 6px,  #020202 0px 12px 13px,  #020202 0px -3px 5px;
    
+}
+.divBodyKitchen{
+  height:auto;
+  background-color: #020202;
+  box-shadow: #020202 0px 54px 55px,  #020202 0px -12px 30px, #020202 0px 4px 6px,  #020202 0px 12px 13px,  #020202 0px -3px 5px;
+ 
 }
 
 .modal{
@@ -242,20 +246,31 @@ ul {
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    
+  }
+  @media screen and (max-width: 400px) {
+    #welcomeIMG {height: 100px;}
+    .middleIMG {
+     height:350px;
+     width: 350px;
+     padding-left: 10px;
+    }
+  
   }
 
   .menu_box{
       width: 200px;
-      height: 200px;
-      margin: 10px;
+      height: 220px;
+      margin: 20px;
   }
-  .menu_box > h1 {
+  .menu_box > form > h1 {
       color: white;
       font-size: 20px;
   }
   #categories_name {
       color: gold;
       font-size: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
   }
 .menu_img {
     width: 200px;
@@ -268,3 +283,150 @@ ul {
     padding: 11px;
     border: 1px solid #ddd;
   }
+
+  
+#Order {
+  color: white;
+}
+
+#myModal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-content.cb {
+  color: white;
+  background-color: #020202;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  font-family: 'Source Sans Pro', sans-serif; font-size: 20px; line-height: 32px;
+}
+#CFbutton {
+  font-family: 'Roboto Condensed', sans-serif;
+
+  margin-top: 50px;
+  font-size: 30px;
+  background-color: gold;
+  line-height: 32px;
+}
+.CFbutton {
+  font-family: 'Roboto Condensed', sans-serif;
+
+  margin-top: 50px;
+  font-size: 30px;
+  background-color: gold;
+  line-height: 32px;
+}
+.KTbutton {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+  background-color: gold;
+  line-height: 22px;
+}
+
+#CFmenubutton {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  background-color: gold;
+  line-height: 25px;
+}
+
+#MenuList {
+  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif; 
+  line-height: 20px;
+}
+
+#changeFont{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#mySearch {
+  box-shadow: 0px 2px 0px 0px white;
+border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: white;
+  font-size: 1.5em;
+  outline: none;
+}
+#mySearch input[type=text] {
+  box-shadow: 0px 2px 0px 0px white;
+border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: white;
+  font-size: 1.5em;
+  outline: none;
+}
+
+.orderList {
+  border: white 1px solid;
+  margin: 20px;
+  padding: 15px;
+  
+}
+
+
+#myRequest {
+  box-shadow: 0px 2px 0px 0px white;
+border: none;
+  background: none;
+  height: 80%;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: white;
+  font-size: 1em;
+  outline: none;
+}
+#myRequest input[type=text] {
+  box-shadow: 0px 2px 0px 0px white;
+border: none;
+height: 80%;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  width: 100%;
+  color: white;
+  font-size: 1em;
+  outline: none;
+}
+
+.middleIMG {
+ text-align: center;
+}
