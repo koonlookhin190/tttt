@@ -1,6 +1,6 @@
 version: '3.3'
 services:
   project:
-    image: koonlookhin190/testdeploy2:latest
+    image: koonlookhin190/testdeploy-prod:latest
     ports:
       - "8116:3000"
